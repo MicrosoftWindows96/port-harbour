@@ -1,0 +1,38 @@
+[package]
+name = "portharbour"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.80"
+description = "Port Harbour scanner + retro pixel-art terminal port visualiser. See which processes own which ports, live."
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/MicrosoftWindows96/port-harbour"
+homepage = "https://github.com/MicrosoftWindows96/port-harbour"
+keywords = ["tui", "ports", "netstat", "harbour", "devtool"]
+categories = ["command-line-utilities", "network-programming", "visualization"]
+authors = ["MicrosoftWindows96"]
+
+[[bin]]
+name = "portharbour"
+path = "src/main.rs"
+
+[dependencies]
+ratatui = "0.29"
+crossterm = "0.28"
+sysinfo = { version = "0.32", default-features = false, features = ["system", "user"] }
+netstat2 = "0.11"
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+arboard = { version = "3", optional = true }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[features]
+default = ["clipboard"]
+clipboard = ["dep:arboard"]
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+opt-level = 3

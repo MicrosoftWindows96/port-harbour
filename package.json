@@ -1,0 +1,86 @@
+{
+  "name": "port-harbour",
+  "displayName": "Port Harbour",
+  "description": "Live pixel-art harbour for your dev ports + docker containers. See which processes own which ports as ships moored at the seawall.",
+  "version": "0.1.0",
+  "publisher": "MicrosoftWindows96",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": ["ports", "netstat", "pixel-art", "harbour", "visualisation", "devtool", "docker"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MicrosoftWindows96/port-harbour"
+  },
+  "bugs": {
+    "url": "https://github.com/MicrosoftWindows96/port-harbour/issues"
+  },
+  "homepage": "https://github.com/MicrosoftWindows96/port-harbour#readme",
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:harbour.show"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "harbour.show",
+        "title": "Port Harbour: Open",
+        "category": "Port Harbour"
+      }
+    ],
+    "configuration": {
+      "title": "Port Harbour",
+      "properties": {
+        "harbour.binaryPath": {
+          "type": "string",
+          "default": "",
+          "description": "Absolute path to the portharbour scanner binary. Leave empty to use the bundled binary, or 'portharbour' to use the one on PATH."
+        },
+        "harbour.intervalMs": {
+          "type": "number",
+          "default": 1000,
+          "minimum": 200,
+          "maximum": 10000,
+          "description": "Scan refresh interval in milliseconds."
+        },
+        "harbour.showAll": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show all sockets, not just LISTEN."
+        },
+        "harbour.docker": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable Docker scanning."
+        },
+        "harbour.dockerIntervalMs": {
+          "type": "number",
+          "default": 3000,
+          "description": "Docker container/image refresh interval."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build:ext": "node esbuild.config.mjs",
+    "build:webview": "cd webview-ui && npm run build",
+    "build": "npm run build:webview && npm run build:ext",
+    "watch:ext": "node esbuild.config.mjs --watch",
+    "watch:webview": "cd webview-ui && npm run dev",
+    "package": "npm run build && vsce package",
+    "lint": "tsc --noEmit",
+    "vscode:prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/vscode": "^1.85.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.4.0",
+    "@vscode/vsce": "^3.2.0"
+  }
+}

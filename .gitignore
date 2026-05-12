@@ -1,0 +1,25 @@
+node_modules/
+out/
+dist/
+.vscode-test/
+*.vsix
+*.log
+
+# Rust
+rust/target/
+target/
+Cargo.lock.bak
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/*
+!.vscode/launch.json
+!.vscode/tasks.json
+!.vscode/extensions.json
+*.iml
+
+# Auto-generated per-project Claude config
+CLAUDE.md
