@@ -6,11 +6,11 @@ rust-version = "1.80"
 description = "Port Harbour scanner + retro pixel-art terminal port visualiser. See which processes own which ports, live."
 license = "MIT"
 readme = "README.md"
-repository = "https://github.com/MicrosoftWindows96/port-harbour"
-homepage = "https://github.com/MicrosoftWindows96/port-harbour"
+repository = "https://github.com/zagrosi-code/port-harbour"
+homepage = "https://github.com/zagrosi-code/port-harbour"
 keywords = ["tui", "ports", "netstat", "harbour", "devtool"]
 categories = ["command-line-utilities", "network-programming", "visualization"]
-authors = ["MicrosoftWindows96"]
+authors = ["zagrosi-code"]
 
 [[bin]]
 name = "portharbour"

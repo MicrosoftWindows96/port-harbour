@@ -3,7 +3,7 @@
   "displayName": "Port Harbour",
   "description": "Live pixel-art harbour for your dev ports + docker containers. See which processes own which ports as ships moored at the seawall.",
   "version": "0.1.0",
-  "publisher": "MicrosoftWindows96",
+  "publisher": "zagrosi-code",
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
@@ -15,12 +15,12 @@
   "keywords": ["ports", "netstat", "pixel-art", "harbour", "visualisation", "devtool", "docker"],
   "repository": {
     "type": "git",
-    "url": "https://github.com/MicrosoftWindows96/port-harbour"
+    "url": "https://github.com/zagrosi-code/port-harbour"
   },
   "bugs": {
-    "url": "https://github.com/MicrosoftWindows96/port-harbour/issues"
+    "url": "https://github.com/zagrosi-code/port-harbour/issues"
   },
-  "homepage": "https://github.com/MicrosoftWindows96/port-harbour#readme",
+  "homepage": "https://github.com/zagrosi-code/port-harbour#readme",
   "main": "./out/extension.js",
   "activationEvents": [
     "onCommand:harbour.show"
